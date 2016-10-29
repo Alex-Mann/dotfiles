@@ -22,7 +22,7 @@ We are going to use Github to store our dotfiles. This will allow us to keep tra
 ### Structure
 Below is the structure example I will use. You can adjust this how you see fit. 
 ```
-.
+.dotfiles
 ├── git
 │ ├── .gitconfig
 │ └── .gitignore_global
@@ -48,4 +48,60 @@ In a Bash shell, the .bash_profile dotfile in your home directory is the first f
 ##### Example .bash_profiles's
 * Mathias's .bash_profile **LINK HERE**
 * 
-####
+#### *.inputrc*
+The inputrc file handles keyboard mapping for specific situations. This file is the startup file used by Readline — the input-related library — used by Bash and most other shells.
+#### *.alias*
+Aliases allow us to define shortcuts for certain commands, add default arguments and/or abbreviate longer one-liners. Check out the examples below.
+```
+alias l="ls -la"       # List in long format, include dotfiles
+alias ld="ls -ld */"   # List in long format, only directories
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+# Recursively remove .DS_Store files
+alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
+```
+#### *.functions*
+This file holds functions. Functions are too complex for an alias and likely too small for a standalone script. They can also take arguments which can make them very powerful. See my example below.
+```
+# Create a new directory and enter it
+function mk() {
+  mkdir -p "$@" && cd "$@"
+}
+```
+#### *.env*
+Environment variables are a set of dynamic named values that can affect the way running processes will behave on a computer. They are part of the environment in which a process runs. They exist in all major operating systems (Linux, Windows, MacOS). They answer questions like:
+* What is the name of the computer where I am installed?
+* What is the name of the user running me?
+* What is my current working directory?
+* Where is the operating system installed?
+* Where are temporary files stored?
+
+Naturally, we are going store our environment variables in another dotfile.
+```
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$DOTFILES_DIR/bin"
+export EDITOR="subl -w"
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
+# Tell grep to highlight matches
+export GREP_OPTIONS='—color=auto'
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob 
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell
+```
+##### The PATH Variable
+Programs need to know where to find and lookup specific files. The PATH variable states where they can find what they need in order to run. Those programs look for a PATH variable automatically so you don't have to type it in every time you run the program. It has a value consisting from many user directories which are set by different programs installed on the computer.
+### Installing the Dotfiles
+Finally we want to get these dotfiles up and running. What I suggest, and what many other users typically do, is they symlink them from the home directory. **Symlinking** is the process of storing the path of the target file (in our case, the dotfiles) as text. This means though, that if you move the target file, the symlink will break because it still points to the original location in the link.
+
+Lets assume that you have installed your dotfiles in the directory structure mentioned above. That means that your files lie in ~/.dotfiles. You can create a symlink from here to the directory where they are expected (which is usually the home directory, ~) by running these lines in your terminal.
+```
+ln -sv “~/.dotfiles/runcom/.bash_profile” ~
+ln -sv “~/.dotfiles/runcom/.inputrc” ~
+ln -sv “~/.dotfiles/git/.gitconfig” ~
+```
+#### Automate, again!
+Why run these lines each time you have to set up your dotfiles on a new computer? Automation, again, is a great solution. We can write a script to automate symlinking the dotfiles in the repo to our home directory. 
+
+There is more though that we can incorporate into our script that we run once to install a new system. Many users will also use Homebrew-cask to install applications (think google chrome, firefox, sublime, VLC, etc). This allows users to install all of these core programs with one script! Convenient huh?
