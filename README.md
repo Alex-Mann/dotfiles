@@ -3,7 +3,6 @@ Welcome to my dotfiles readme. By the end of this readme you will have a better 
 * What dotfiles are
 * How dotfiles work
 * The huge benefit of having your own set of dotfiles
-
 ## tl/dr;
 Dotfiles will allow you to customize your system, your shell, and help optimize your machine setup workflow. They are best used in a script which is used to automate importing your development settings, shell settings and applications.
 ## Introduction
