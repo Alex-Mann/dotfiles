@@ -43,6 +43,7 @@ Below is the structure example I will use. You can adjust this how you see fit.
 Before I talk about the files, I will try to link and help you understand what is actually happening in your shell. If you are like me, there was a point where I ignorant to what these files were or what was happenning in the background. I hope that after these brief summaries you have a slightly better understanding of what they do and how they work.
 * [Shell startup scripts](http://blog.flowblok.id.au/2013-02/shell-startup-scripts.html)
 * [Bash startup files loading order](https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/)
+
 #### *.bash_profile*
 In a Bash shell, the .bash_profile dotfile in your home directory is the first file to get loaded. There is a lot of information that can be associated with this file and therefore I will link articles that I find useful to understand the innerworkings of it.
 ##### Example .bash_profiles's
@@ -105,3 +106,9 @@ ln -sv “~/.dotfiles/git/.gitconfig” ~
 Why run these lines each time you have to set up your dotfiles on a new computer? Automation, again, is a great solution. We can write a script to automate symlinking the dotfiles in the repo to our home directory. 
 
 There is more though that we can incorporate into our script that we run once to install a new system. Many users will also use Homebrew-cask to install applications (think google chrome, firefox, sublime, VLC, etc). This allows users to install all of these core programs with one script! Convenient huh?
+### Credit
+I have to give credit to a bunch of helpful articles and links that have allowed to me understand more about dotfiles, shells, and the command line. Thanks to:
+* [Getting Started With Dotfiles](https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789#.hqrpjbc7r) by Lars Kappert
+* [Shell startup scripts](http://blog.flowblok.id.au/2013-02/shell-startup-scripts.html) by Peter Ward
+* [Zsh/Bash startup files loading order](https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/) by The Lumber Room
+* [Dotfiles](https://dotfiles.github.io/) by GitHub!
