@@ -48,7 +48,7 @@ Before I talk about the files, I will try to link and help you understand what i
 In a Bash shell, the .bash_profile dotfile in your home directory is the first file to get loaded. There is a lot of information that can be associated with this file and therefore I will link articles that I find useful to understand the innerworkings of it.
 ##### Example .bash_profiles's
 * Mathias's .bash_profile **LINK HERE**
-* 
+
 #### *.inputrc*
 The inputrc file handles keyboard mapping for specific situations. This file is the startup file used by Readline — the input-related library — used by Bash and most other shells.
 #### *.alias*
