@@ -20,24 +20,8 @@ Configuring your computer and development environment likely evolves over a long
 ## Getting Started
 We are going to use Github to store our dotfiles. This will allow us to keep track of our changes overtime and give us access to our configuration from any computer at any time.
 ### Structure
-Below is the structure example I will use. You can adjust this how you see fit. 
-```
-.dotfiles
-├── git
-│ ├── .gitconfig
-│ └── .gitignore_global
-├── install.sh
-├── osxdefaults.sh
-├── runcom
-│ ├── .bash_profile
-│ └── .inputrc
-└── system
- ├── .alias
- ├── .env
- ├── .function
- ├── .path
- └── .prompt
-```
+Since I do not have many files and customizations, I opt for a flat directory structure. As your dotfiles grow larger though, I would suggest to seperate your files into folders that make sense. You can find various structures on other users' GitHub's.
+
 ### The dotfiles
 #### Loading and startup files
 Before I talk about the files, I will try to link and help you understand what is actually happening in your shell. If you are like me, there was a point where I ignorant to what these files were or what was happenning in the background. I hope that after these brief summaries you have a slightly better understanding of what they do and how they work.
